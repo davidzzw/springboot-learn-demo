@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @see
  * @since 2018/1/15
  */
-@Configuration
+//@Configuration
 public class AopConfigurtion extends DefaultPointcutAdvisor implements InitializingBean{
 
     private Pointcut pointcut;
