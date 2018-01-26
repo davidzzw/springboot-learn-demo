@@ -1,8 +1,5 @@
 package com.zzw.enums;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public enum ContentSearchTermEnum {
 
     // 标题
@@ -10,6 +7,9 @@ public enum ContentSearchTermEnum {
     // 内容
     CONTENT("content");
 
+    ContentSearchTermEnum(String name){
+        this.name = name;
+    }
     /**
      * 搜索字段
      */
