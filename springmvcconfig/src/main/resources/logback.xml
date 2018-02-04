@@ -10,8 +10,8 @@
         </encoder>
     </appender>
 
-    <appender name="searchlog" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${catalina.base}/logs/${APP_Name}/${APP_Name}.log</File>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.base}/logs/${APP_Name}/info.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${catalina.base}/logs/springmvcconfig/info.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>720</maxHistory>
