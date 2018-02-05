@@ -30,7 +30,7 @@ public class CoreWebAppInitializer extends AbstractAnnotationConfigDispatcherSer
     @Override
     protected String[] getServletMappings() {
         // 默认DispatcherServlet的映射,拦截所有请求
-        return new String[]{"/*"};
+        return new String[]{"/"};
     }
 
     @Override

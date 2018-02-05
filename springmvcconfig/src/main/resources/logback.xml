@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration>
     <property name="APP_Name" value="springmvcconfig"/>
     <contextName>${APP_Name}</contextName>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="UTF-8" class="com.zzw.encoder.LogBackExEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%T] [%thread] [%-5p] [%c{1}] %m%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%T] [%thread] %-5level %logger{35} %m%n</pattern>
         </encoder>
     </appender>
 
@@ -19,6 +18,9 @@
         <encoder charset="UTF-8" class="com.zzw.encoder.LogBackExEncoder">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%T] [%thread] [%-5p] [%c{1}] %m%n</pattern>
         </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
     </appender>
 
     <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">

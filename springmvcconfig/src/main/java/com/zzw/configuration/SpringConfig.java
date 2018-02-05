@@ -1,3 +1,4 @@
+
 package com.zzw.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +15,6 @@ import org.springframework.stereotype.Controller;
 @Configuration
 @ComponentScan(basePackages={"com.zzw"},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)})
-//@EnableAsync
+@EnableAsync
 public class SpringConfig {
 }

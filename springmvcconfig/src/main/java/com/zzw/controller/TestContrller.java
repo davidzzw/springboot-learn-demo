@@ -15,7 +15,7 @@ public class TestContrller {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @GetMapping
+    @GetMapping("/hello")
     public String hello(){
         logger.info("hello");
         return "hello";
