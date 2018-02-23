@@ -18,6 +18,7 @@ public class TestContrller {
     @GetMapping("/hello")
     public String hello(){
         logger.info("hello");
+        logger.info("Processing trade with id:[{}] and symbol : [{}] ", 1, 2);
         return "hello";
     }
 }

@@ -11,7 +11,7 @@ public class SpringbootKafkaApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringbootKafkaApplication.class, args);
-		KafkaSender sender = context.getBean(KafkaSender.class);
+		/*KafkaSender sender = context.getBean(KafkaSender.class);
 
 		for (int i = 0; i < 3; i++) {
 			//调用消息发送类中的消息发送方法
@@ -25,6 +25,6 @@ public class SpringbootKafkaApplication {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 	}
 }
