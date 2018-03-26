@@ -41,7 +41,7 @@ public class KakfaConfiguration {
     }
 
     @Bean
-    private DefaultKafkaConsumerFactory<String,String> consumerFactory() {
+    public DefaultKafkaConsumerFactory<String,String> consumerFactory() {
         DefaultKafkaConsumerFactory<String,String> consumerFactory = new DefaultKafkaConsumerFactory<String, String>(consumerConfigs());
         return consumerFactory;
     }
@@ -62,7 +62,7 @@ public class KakfaConfiguration {
     }
 
     //批量消费
-    @KafkaListener(topics = "${tgs.kafka.topics}", containerFactory = "kafkaListenerContainerFactory")
+   /* @KafkaListener(topics = "${tgs.kafka.topics}", containerFactory = "kafkaListenerContainerFactory")
     public void listen(List<ConsumerRecord<?, ?>> records, Acknowledgment ack) {
         logger.info("records.size: " + records.size() + " in all");
         for (ConsumerRecord<?, ?> record : records) {
@@ -77,5 +77,5 @@ public class KakfaConfiguration {
             ack.acknowledge();//手动提交偏移量
             logger.info("stop commit offset");
         }
-    }
+    }*/
 }

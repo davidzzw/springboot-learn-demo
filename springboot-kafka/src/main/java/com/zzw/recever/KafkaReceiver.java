@@ -30,5 +30,11 @@ public class KafkaReceiver {
             logger.info("----------------- record =" + record);
             logger.info("------------------ message =" + message);
         }
+
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
