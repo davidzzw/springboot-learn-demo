@@ -10,7 +10,7 @@ public class SpringbootTestApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringbootTestApplication.class, args);
-		UserVo bean = context.getBean(UserVo.class);
-		System.out.println(bean);
+		/*UserVo bean = context.getBean(UserVo.class);
+		System.out.println(bean);*/
 	}
 }
