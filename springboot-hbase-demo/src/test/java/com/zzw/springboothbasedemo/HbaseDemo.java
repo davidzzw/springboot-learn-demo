@@ -9,17 +9,14 @@ package com.zzw.springboothbasedemo;
 import com.zzw.springboothbasedemo.model.UserVo;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.codehaus.jackson.map.ObjectMapper;
-import util.HbaseUtil;
+import com.zzw.springboothbasedemo.util.HbaseUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 〈〉<br>

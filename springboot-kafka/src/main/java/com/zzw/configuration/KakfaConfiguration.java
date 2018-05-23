@@ -1,3 +1,4 @@
+/*
 package com.zzw.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,11 +20,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+*/
 /**
  * @author zzw
  * @see
  * @since 2018/2/23
- */
+ *//*
+
 @Configuration
 public class KakfaConfiguration {
 
@@ -49,24 +52,24 @@ public class KakfaConfiguration {
     @Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.20.7.49:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.16.51.87:9092");
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);//定时提交功能，开启后，Kafka会定期向zk中更新我们consumer获取的最后一个batch的first mesasage offset
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "100");//向zk更新offset的时间间隔
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "15000");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group1");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group2");
         props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "100");//表示一次获取的最多记录数
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");//如果zookeeper上没有offset合理的初始值情况下获取第一条消息开始的策略smallest|largeset
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");//如果zookeeper上没有offset合理的初始值情况下获取第一条消息开始的策略smallest|largeset|earliest
         return props;
     }
 
     //批量消费
-   /* @KafkaListener(topics = "${tgs.kafka.topics}", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "test", containerFactory = "kafkaListenerContainerFactory")
     public void listen(List<ConsumerRecord<?, ?>> records, Acknowledgment ack) {
         logger.info("records.size: " + records.size() + " in all");
         for (ConsumerRecord<?, ?> record : records) {
-
+            logger.info(record.value().toString());
         }
         try {
 
@@ -77,5 +80,6 @@ public class KakfaConfiguration {
             ack.acknowledge();//手动提交偏移量
             logger.info("stop commit offset");
         }
-    }*/
+    }
 }
+*/

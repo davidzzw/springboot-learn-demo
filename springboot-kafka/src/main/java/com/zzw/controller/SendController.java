@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.ExecutionException;
+
 /**
  * @author zzw
  * @see
@@ -28,6 +30,10 @@ public class SendController {
             return "error";
         } catch (JsonProcessingException e) {
             logger.info("sendMessage error");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
         return "sucess";
     }

@@ -4,7 +4,7 @@
  * Date:     2018年05月19日
  * Description:
  */
-package util;
+package com.zzw.springboothbasedemo.util;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;

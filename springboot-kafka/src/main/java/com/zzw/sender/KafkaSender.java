@@ -7,10 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.Date;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author zzw
@@ -29,13 +32,14 @@ public class KafkaSender {
     private ObjectMapper objectMapper;
 
     //发送消息方法
-    public void send() throws JsonProcessingException {
+    public void send() throws JsonProcessingException, ExecutionException, InterruptedException {
         Message message = new Message();
         message.setId(System.currentTimeMillis());
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date());
         String msg = objectMapper.writeValueAsString(message);
         logger.info("+++++++++++++++++++++  message = {}", msg);
-        kafkaTemplate.send("test", msg);
+        ListenableFuture<SendResult<String, String>> reslt = kafkaTemplate.send("test2",1, msg);
+        System.out.println(reslt.get().toString());
     }
 }

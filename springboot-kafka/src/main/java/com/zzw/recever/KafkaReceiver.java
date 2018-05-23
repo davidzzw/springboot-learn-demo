@@ -18,7 +18,7 @@ public class KafkaReceiver {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @KafkaListener(topics = {"test"})
+    @KafkaListener(topics = {"test2"})
     public void listen(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
@@ -31,10 +31,31 @@ public class KafkaReceiver {
             logger.info("------------------ message =" + message);
         }
 
-        try {
+        /*try {
             Thread.sleep(100000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }*/
+    }
+
+
+    @KafkaListener(topics = {"test2"})
+    public void listen2(ConsumerRecord<?, ?> record) {
+
+        Optional<?> kafkaMessage = Optional.ofNullable(record.value());
+
+        if (kafkaMessage.isPresent()) {
+
+            Object message = kafkaMessage.get();
+
+            logger.info("----------------- record2 =" + record);
+            logger.info("------------------ message2 =" + message);
         }
+
+        /*try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
     }
 }
