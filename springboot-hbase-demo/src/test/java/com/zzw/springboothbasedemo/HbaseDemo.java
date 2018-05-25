@@ -32,16 +32,17 @@ public class HbaseDemo {
 
         Configuration conf = HBaseConfiguration.create();
         conf.set("hbase.zookeeper.property.clientPort", "2181");
-        conf.set("hbase.zookeeper.quorum", "172.16.51.87");
+        conf.set("hbase.zookeeper.quorum", "escnode0");
         Connection conn = ConnectionFactory.createConnection(conf);
-        HBaseAdmin admin = (HBaseAdmin) conn.getAdmin();
+        HbaseUtil.listCells(conn,"trace");
+        //HBaseAdmin admin = (HBaseAdmin) conn.getAdmin();
 
-        ObjectMapper objectMapper = new ObjectMapper();
+      /*  ObjectMapper objectMapper = new ObjectMapper();
         UserVo userVo = new UserVo();
         userVo.setUserName("hello");
         userVo.setPwd("123456");
         String s = objectMapper.writeValueAsString(userVo);
-        System.out.println(s);
+        System.out.println(s);*/
        /* Table table = conn.getTable(TableName.valueOf("test"));
         Scan scan = new Scan();
         ResultScanner scanner = table.getScanner(scan);
@@ -54,7 +55,7 @@ public class HbaseDemo {
         map.put("8","8");
         map.put("9","9");
         HbaseUtil.putDatas(conn,"1", "csf",Bytes.toBytes("rpc"),map);*/
-        HbaseUtil.createTable(conn.getAdmin(),"csf2","rpc");
+       /* HbaseUtil.createTable(conn.getAdmin(),"csf2","rpc");
         List<Put> list = new ArrayList<>();
         Put put = new Put(Bytes.toBytes("1"));
         for (int j = 1000;j < 1002; j++){
@@ -62,7 +63,7 @@ public class HbaseDemo {
             list.add(put);
         }
 
-        HbaseUtil.putByHTable(conn,"csf2",list);
+        HbaseUtil.putByHTable(conn,"csf2",list);*/
     }
 
     private static void modifyColumn(Connection conn,String webtable, String visitflow, int maxValue) throws Exception {
