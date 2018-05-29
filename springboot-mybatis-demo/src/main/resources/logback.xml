@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="true">
+
+	<property name="LOG_HOME" value="/logs/trace" />
+
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{30}> %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<!-- Log -->
+	<appender name="Log"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}-log.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{30}> %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<!-- Other -->
+	<appender name="Other"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}-other.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{30}> %msg%n</pattern>
+		</layout>
+	</appender>
+
+	<!-- ################################################### 我是分割线 ################################################### -->
+
+	<!-- Log -->
+	<logger name="com.chezhibao" level="INFO" additivity="false">
+		<appender-ref ref="Log" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- 第三方 -->
+	<logger name="org.springframework" level="INFO" additivity="false" >
+		<appender-ref ref="Log" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<!-- 日志级别 OFF、FATAL、ERROR、WARN、INFO、INFO、ALL。Log4j建议只使用四个级别，优先级从高到低分别是ERROR、WARN、INFO、INFO。通过在这里定义的级别，可以控制到应用程序中相应级别的日志信息的开关。 -->
+	<root level="INFO">
+		<appender-ref ref="Other" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
