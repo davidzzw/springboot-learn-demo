@@ -181,11 +181,11 @@ public class HbaseUtil {
         System.out.println("---------------------------------------------");
 
         for (Cell cell : result.listCells()) {
-            System.out.println("cell: " + cell.toString());
-            System.out.println("family: " + Bytes.toString(cell.getFamilyArray(), cell.getFamilyOffset(), cell.getFamilyLength()));
-            System.out.println("qualifier: " + Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(), cell.getQualifierLength()));
+            //System.out.println("cell: " + cell.toString());
+            //System.out.println("family: " + Bytes.toString(cell.getFamilyArray(), cell.getFamilyOffset(), cell.getFamilyLength()));
+            //System.out.println("qualifier: " + Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(), cell.getQualifierLength()));
             System.out.println("value: " + Bytes.toString(cell.getValueArray(), cell.getValueOffset(), cell.getValueLength()));
-            System.out.println("timestamp: " + cell.getTimestamp());
+            //System.out.println("timestamp: " + cell.getTimestamp());
             System.out.println("---------------------------------------------");
         }
         return result;
