@@ -24,6 +24,11 @@ public class UserController {
     @Value("${hello}")
     private String hello;
 
+    @GetMapping("/hello")
+    public String hello(){
+        return hello;
+    }
+
     @GetMapping("/users")
     public List<UserVo>  users(){
         logger.info(hello);

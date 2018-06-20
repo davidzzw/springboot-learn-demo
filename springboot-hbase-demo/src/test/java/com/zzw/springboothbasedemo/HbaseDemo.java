@@ -35,9 +35,9 @@ public class HbaseDemo {
         conf.set("hbase.zookeeper.quorum", "escnode0");
         Connection conn = ConnectionFactory.createConnection(conf);
         //HbaseUtil.listCells(conn,"trace");
-        HbaseUtil.createTable(conn.getAdmin(),"trace","rpc");
-        //Result result = HbaseUtil.listCells(conn, "trace", "0afe4ccb15277680093381009d000e");
-        //System.out.println(result.listCells().size());
+        //HbaseUtil.createTable(conn.getAdmin(),"trace","rpc");
+        Result result = HbaseUtil.listCells(conn, "trace", "0afe7ab315289449738115723d000e");
+        System.out.println(result.listCells().size());
         //String s = "{\"span\" : \"12312\", \"startTime\" : \"121312313\", \"traceName\" : \"eqwe\", \"rpcId\" : \"1.0.0\", \"appname\" : \"test\", \"resultCode\":\"200\", \"rpcType\" : \"0\", \"traceId\" : \"123123123\"} ";
        // HbaseUtil.putData(conn,"123123123","trace",Bytes.toBytes("rpc"),Bytes.toBytes("1.0.0"),Bytes.toBytes(s));
         //HbaseUtil.deleteColumn(conn,"trace","123123123",Bytes.toBytes("rpc"),Bytes.toBytes("1.0.0.10"));

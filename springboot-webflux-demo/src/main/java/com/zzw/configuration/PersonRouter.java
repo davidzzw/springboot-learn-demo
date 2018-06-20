@@ -6,6 +6,7 @@
  */
 package com.zzw.configuration;
 
+import com.zzw.handler.PersonHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;

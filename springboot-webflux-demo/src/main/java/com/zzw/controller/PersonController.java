@@ -6,8 +6,13 @@
  */
 package com.zzw.controller;
 
+import com.zzw.repository.PersonRepository;
+import com.zzw.repository.entity.PersonEntity;
+import com.zzw.vo.Person;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * 〈〉<br>
@@ -27,7 +32,7 @@ public class PersonController {
 
 
     @GetMapping("/people")
-    public Flux<Person> all() {
+    public Flux<PersonEntity> all() {
         return personRepository.findAll();
     }
 
