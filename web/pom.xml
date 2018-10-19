@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <sentinel.version>0.2.0</sentinel.version>
     </properties>
 
     <dependencies>
@@ -42,19 +43,36 @@
             <version>0.2.0-SNAPSHOT</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-transport-simple-http</artifactId>
             <version>0.2.0-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>0.2.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--推模式-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>${sentinel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>0.1.0.1-SNAPSHOT</version>
+        </dependency>
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>-->
 
-        <dependency>
+       <!-- <dependency>
             <groupId>com.chezhibao.csf</groupId>
             <artifactId>csf</artifactId>
             <version>1.2.0-SNAPSHOT</version>
@@ -70,7 +88,7 @@
             <groupId>com.chezhibao</groupId>
             <artifactId>chezhibao-cache</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>redis.clients</groupId>

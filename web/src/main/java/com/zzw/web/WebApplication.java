@@ -1,14 +1,11 @@
 package com.zzw.web;
 
 import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;
-import com.chezhibao.cache.core.*;
-import com.chezhibao.clotho.ClothoFilter;
+import com.alibaba.csp.sentinel.adapter.servlet.callback.WebCallbackManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import redis.clients.jedis.JedisPoolConfig;
 
 @SpringBootApplication
 public class WebApplication {
@@ -19,10 +16,16 @@ public class WebApplication {
 
     @Bean
     public CommonFilter commonFilter(){
+        CommonFilter commonFilter = new CommonFilter();
+        WebCallbackManager.setRequestOriginParser(new MyRequestOriginParser());
         return new CommonFilter();
     }
 
-    @Bean
+   /* @Bean
+    public CsfNacosDataSourceConfiguration csfNacosDataSourceConfiguration(){
+        return new CsfNacosDataSourceConfiguration();
+    }*/
+   /* @Bean
     public ClothoFilter clothoFilter(){
         return new ClothoFilter();
     }
@@ -37,7 +40,7 @@ public class WebApplication {
         registration.setOrder(1);//设置优先级
         return registration;
     }
-
+*/
     @Bean
     public FilterRegistrationBean filterRegistrationBean2(CommonFilter commonFilter) {
         FilterRegistrationBean registration = new FilterRegistrationBean();
@@ -49,7 +52,7 @@ public class WebApplication {
         return registration;
     }
 
-    @Bean
+    /*@Bean
     public JedisPoolConfig jedisPoolConfig(){
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxIdle(10);
@@ -57,9 +60,9 @@ public class WebApplication {
         config.setMaxWaitMillis(1000);
         config.setMaxTotal(100);
         return config;
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public JedisConnectionFactory jedisConnectionFactory(JedisPoolConfig jedisPoolConfig){
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
         jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
@@ -74,5 +77,5 @@ public class WebApplication {
         CRedisTemplate<String, String> template = new CRedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory);
         return template;
-    }
+    }*/
 }
